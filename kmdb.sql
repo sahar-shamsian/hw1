@@ -351,8 +351,9 @@ VALUES (
 .print "======"
 .print ""
 
-SELECT director.director_name, movie.movie_title, movie.year, movie.rating, movie.director_id
-FROM Movie INNER JOIN Director on Director.director_name = movie.director_id;
+SELECT movie.movie_title, movie.year, movie.rating, director.director_name
+FROM Movie INNER JOIN Director on Director.id = movie.director_id;
+
 
 
 .print ""
@@ -360,5 +361,7 @@ FROM Movie INNER JOIN Director on Director.director_name = movie.director_id;
 .print "========"
 .print ""
 
---SELECT movie_id, actor_name, role_name FROM Top_Cast;
+SELECT movie.movie_title, top_cast.actor_name, top_cast.role_name
+FROM movie INNER JOIN top_cast on top_Cast.movie_id = movie_id
+ORDER by movie.movie_title;
 
