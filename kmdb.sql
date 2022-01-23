@@ -91,17 +91,16 @@
 
 
 -- CREATE TABLES
-DROP TABLE IF EXISTS Movies;
+DROP TABLE IF EXISTS Movie;
 DROP TABLE IF EXISTS Top_Cast;
 DROP TABLE IF EXISTS Director;
 
-CREATE TABLE Movies (
+CREATE TABLE Movie (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   movie_title TEXT,
   year TEXT,
   rating TEXT,
-  director_id TEXT,
-  movie_id INTEGER
+  director_id TEXT
 );
 
 CREATE TABLE Top_Cast (
@@ -117,48 +116,42 @@ CREATE TABLE Director (
   movie_id INTEGER
 );
 
-INSERT INTO movies (
+INSERT INTO movie (
   movie_title,
   year,
   rating,
-  director_id,
-  movie_id
+  director_id
 )
 VALUES (
   'Batman Begins',
   '2005',
   'PG-13',
-  1,
   1
 );
 
-INSERT INTO movies (
+INSERT INTO movie (
   movie_title,
   year,
   rating,
-  director_id,
-  movie_id
+  director_id
 )
 VALUES (
   'The Dark Knight',
   '2008',
   'PG-13',
-  1,
   2
 );
 
-INSERT INTO movies (
+INSERT INTO movie (
   movie_title,
   year,
   rating,
-  director_id,
-  movie_id
+  director_id
 )
 VALUES (
   'The Dark Knight Rises',
   '2012',
   'PG-13',
-  1,
   3
 );
 
@@ -358,15 +351,14 @@ VALUES (
 .print "======"
 .print ""
 
---SELECT movies.movie_title, movies.year, movies.rating, movies.director_id;
---FROM Movies INNER JOIN Director on Director.director_name = movies.director_id;
+SELECT director.director_name, movie.movie_title, movie.year, movie.rating, movie.director_id
+FROM Movie INNER JOIN Director on Director.director_name = movie.director_id;
 
-SELECT movie_title, year, rating, director_id FROM Movies;
 
 .print ""
 .print "Top Cast"
 .print "========"
 .print ""
 
-SELECT movie_id, actor_name, role_name FROM Top_Cast;
+--SELECT movie_id, actor_name, role_name FROM Top_Cast;
 
