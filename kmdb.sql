@@ -99,51 +99,278 @@ CREATE TABLE Movies (
   movie_title TEXT,
   year TEXT,
   rating TEXT,
-  director TEXT
+  director_id TEXT,
+  movie_id INTEGER
 );
 
 CREATE TABLE Top_Cast (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_title TEXT,
   actor_name TEXT,
-  role_name TEXT
+  role_name TEXT,
+  movie_id INTEGER
+);
+
+CREATE TABLE Director (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  director_name TEXT,
+  director_id INTEGER,
+  movie_id INTEGER
 );
 
 INSERT INTO movies (
   movie_title,
   year,
   rating,
-  director
+  director_id
+  movie_id
 )
 VALUES (
-  'Batman Begins'
-  '2005'
-  'PG-13'
-  'Christopher Nolan'
+  'Batman Begins',
+  '2005',
+  'PG-13',
+  1,
+  1
+);
+
+INSERT INTO movies (
+  movie_title,
+  year,
+  rating,
+  director_id
+  movie_id
+)
+VALUES (
+  'The Dark Knight',
+  '2008',
+  'PG-13',
+  1,
+  2
+);
+
+INSERT INTO movies (
+  movie_title,
+  year,
+  rating,
+  director_id
+  movie_id
+)
+VALUES (
+  'The Dark Knight Rises',
+  '2012',
+  'PG-13',
+  1,
+  3
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Christian Bale',
+  'Bruce Wayne',
+  1
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Christian Bale',
+  'Bruce Wayne',
+  2
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Christian Bale',
+  'Bruce Wayne',
+  3
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Michael Caine',
+  'Alfred',
+  1
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Michael Caine',
+  'Alfred',
+  2
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Liam Neeson',
+  'Ra`s Al Ghul',
+  1
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Katie Holmes',
+  'Rachel Dawes',
+  1
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Gary Oldman',
+  'Commissioner Gordon',
+  1
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Gary Oldman',
+  'Commissioner Gordon',
+  3
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Heath Ledger',
+  'Joker',
+  2
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Aaron Eckhart',
+  'Harvey Dent',
+  2
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Maggie Gyllenhaal',
+  'Rachel Dawes',
+  2
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Tom Hardy',
+  'Bane',
+  3
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Joseph Gordon-Levitt',
+  'John Blake',
+  3
+);
+
+INSERT INTO Top_Cast (
+  actor_name,
+  role_name,
+  movie_id
+)
+VALUES (
+  'Anne Hathaway',
+  'Selina Kyle',
+  3
+);
+
+INSERT INTO Director (
+  director_name,
+  director_id,
+  movie_id
+)
+VALUES (
+  'Christopher Nolan',
+  1,
+  1
 )
 
+INSERT INTO Director (
+  director_name,
+  director_id,
+  movie_id
+)
+VALUES (
+  'Christopher Nolan',
+  1,
+  2
+)
 
-
-
-
-
-
-
-
-
-
+INSERT INTO Director (
+  director_name,
+  director_id,
+  movie_id
+)
+VALUES (
+  'Christopher Nolan',
+  1,
+  3
+)
 
 .print "Movies"
 .print "======"
 .print ""
 
-SELECT movie_title, year, rating, director FROM Movies
-ORDER BY year;
+SELECT movie_title, year, rating, director 
+FROM Movies;
 
 .print ""
 .print "Top Cast"
 .print "========"
 .print ""
 
-SELECT movie_title, actor_name, role_name FROM Top_Cast
-ORDER BY movie_title;
+SELECT movie_title, actor_name, role_name FROM Top_Cast;
+
