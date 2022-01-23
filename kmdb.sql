@@ -93,6 +93,7 @@
 -- CREATE TABLES
 DROP TABLE IF EXISTS Movies;
 DROP TABLE IF EXISTS Top_Cast;
+DROP TABLE IF EXISTS Director;
 
 CREATE TABLE Movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -113,7 +114,6 @@ CREATE TABLE Top_Cast (
 CREATE TABLE Director (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   director_name TEXT,
-  director_id INTEGER,
   movie_id INTEGER
 );
 
@@ -121,7 +121,7 @@ INSERT INTO movies (
   movie_title,
   year,
   rating,
-  director_id
+  director_id,
   movie_id
 )
 VALUES (
@@ -136,7 +136,7 @@ INSERT INTO movies (
   movie_title,
   year,
   rating,
-  director_id
+  director_id,
   movie_id
 )
 VALUES (
@@ -151,7 +151,7 @@ INSERT INTO movies (
   movie_title,
   year,
   rating,
-  director_id
+  director_id,
   movie_id
 )
 VALUES (
@@ -329,48 +329,44 @@ VALUES (
 
 INSERT INTO Director (
   director_name,
-  director_id,
   movie_id
 )
 VALUES (
   'Christopher Nolan',
-  1,
   1
-)
+);
 
 INSERT INTO Director (
   director_name,
-  director_id,
   movie_id
 )
 VALUES (
   'Christopher Nolan',
-  1,
   2
-)
+);
 
 INSERT INTO Director (
   director_name,
-  director_id,
   movie_id
 )
 VALUES (
   'Christopher Nolan',
-  1,
   3
-)
+);
 
 .print "Movies"
 .print "======"
 .print ""
 
-SELECT movie_title, year, rating, director 
-FROM Movies;
+--SELECT movies.movie_title, movies.year, movies.rating, movies.director_id;
+--FROM Movies INNER JOIN Director on Director.director_name = movies.director_id;
+
+SELECT movie_title, year, rating, director_id FROM Movies;
 
 .print ""
 .print "Top Cast"
 .print "========"
 .print ""
 
-SELECT movie_title, actor_name, role_name FROM Top_Cast;
+SELECT movie_id, actor_name, role_name FROM Top_Cast;
 
